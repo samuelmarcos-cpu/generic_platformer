@@ -1,0 +1,21 @@
+{
+  "name": "generic-platformer",
+  "version": "0.1.0",
+  "description": "Generic Platformer (Phaser3 + Typescript)",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Marcos Samuel da Silva Miranda",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "parcel": "^1.12.4",
+    "phaser": "^3.23.0"
+  }
+}
