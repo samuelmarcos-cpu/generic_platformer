@@ -4,7 +4,7 @@
   "description": "Generic Platformer (Phaser3 + Typescript)",
   "main": "index.js",
   "scripts": {
-    "start": "parcel serve index.html",
+    "start": "parcel serve index.html --port 24372",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel index.html",
     "build": "parcel build index.html"
