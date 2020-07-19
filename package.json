@@ -4,18 +4,15 @@
   "description": "Generic Platformer (Phaser3 + Typescript)",
   "main": "index.js",
   "scripts": {
-    "start": "parcel serve index.html --port 24372",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marcos Samuel da Silva Miranda",
   "license": "MIT",
-  "devDependencies": {
-    "typescript": "^3.9.5"
-  },
   "dependencies": {
-    "parcel": "^1.12.4",
     "phaser": "^3.23.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.9.7"
   }
 }
