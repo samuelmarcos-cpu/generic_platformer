@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    game: './game/app.ts'
+    game: './src/app.ts'
   },
   output: {
     filename: '[name].js',
@@ -27,5 +27,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
+  },
+  devServer: {
+    compress: true,
+    port: process.env.PORT || 1234
   }
 }
