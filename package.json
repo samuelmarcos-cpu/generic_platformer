@@ -9,14 +9,13 @@
     "dev": "nodemon server.js",
     "build:watch": "webpack -w --mode development",
     "build:prod": "webpack --mode production",
-    "heroku-postbuild": "webpack -p"
+    "heroku-postbuild": "webpack --mode production"
   },
   "author": "Marcos Samuel da Silva Miranda",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "hbs": "^4.1.1",
     "phaser": "^3.23.0"
   },
   "devDependencies": {

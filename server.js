@@ -3,16 +3,10 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(cors())
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
 app.use(express.static('public'))
 
-app.set('views', 'views')
-app.set('view engine', 'hbs')
-
-app.get('/', (req, res) => {
-  res.render('index')
+app.get('/', cors(), (req, res) => {
+  res.sendFile('index.html')
 })
 
 app.listen(process.env.PORT || 1234, () => {
