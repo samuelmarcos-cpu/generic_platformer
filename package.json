@@ -4,11 +4,12 @@
   "description": "Generic Platformer (Phaser3 + Typescript)",
   "main": "src/server.js",
   "scripts": {
-    "start": "webpack --mode production && node server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "build:watch": "webpack -w --mode development",
-    "build:prod": "webpack --mode production"
+    "build:prod": "webpack --mode production",
+    "heroku-postbuild": "webpack -p"
   },
   "author": "Marcos Samuel da Silva Miranda",
   "license": "MIT",
