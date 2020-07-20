@@ -4,7 +4,7 @@
   "description": "Generic Platformer (Phaser3 + Typescript)",
   "main": "src/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack --mode production && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "build:watch": "webpack -w --mode development",
