@@ -87,7 +87,7 @@ export class GameScene extends Phaser.Scene {
 
         this.green = new GreenPatrol(this, 200, 80, map.tileWidth, map.tileHeight, mainLayer, this.player)
         this.blue = new BluePatrol(this, 100, 80, map.tileWidth, map.tileHeight, mainLayer, this.player)
-        this.red = new RedPatrol(this, 375, 80, map.tileWidth, map.tileHeight, mainLayer, this.player)
+        this.red = new RedPatrol(this, 300, 200, map.tileWidth, map.tileHeight, mainLayer, this.player)
         this.trap = new Trap(this, map, 'trap', tiles, this.player)
     }
 

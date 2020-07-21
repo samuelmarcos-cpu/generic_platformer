@@ -1,12 +1,13 @@
 import "phaser"
 
 import Patrol from "./Patrol"
+import GreenPatrol from "./GreenPatrol"
 import Player from "./Player"
 
 export default class RedPatrol extends Patrol {
     static readonly ANIM_RUN = "RedPatrolRun"
-    static readonly VELOCITY_X = 50
-    static readonly COLLISION_JUMP = 1.5
+    static readonly VELOCITY_X = GreenPatrol.VELOCITY_X * 2
+    static readonly COLLISION_JUMP = GreenPatrol.COLLISION_JUMP / 2
 
     constructor(
         scene: Phaser.Scene,

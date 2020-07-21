@@ -18,7 +18,7 @@ export default class RightState implements InterfaceState {
     }
 
     execute() {
-        if (this.patrol.groundAhead(true) == false) {
+        if (this.patrol.body.blocked.left || this.patrol.groundAhead(true) == false || this.patrol.body.blocked.right) {
             this.patrol.setState(this.stateKeyLeft)
         }
 
