@@ -98,22 +98,22 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     static preload(scene: Phaser.Scene) {
-        scene.load.image('idle1', 'assets/Player/idle/anim1.png')
-        scene.load.image('idle2', 'assets/Player/idle/anim2.png')
-        scene.load.image('idle3', 'assets/Player/idle/anim3.png')
-        scene.load.image('idle4', 'assets/Player/idle/anim4.png')
+        scene.load.image('idle1', 'assets/characters/player/idle/anim1.png')
+        scene.load.image('idle2', 'assets/characters/player/idle/anim2.png')
+        scene.load.image('idle3', 'assets/characters/player/idle/anim3.png')
+        scene.load.image('idle4', 'assets/characters/player/idle/anim4.png')
 
-        scene.load.image('jump1', 'assets/Player/jump/anim8.png')
-        scene.load.image('jump2', 'assets/Player/jump/anim11.png')
+        scene.load.image('jump1', 'assets/characters/player/jump/anim8.png')
+        scene.load.image('jump2', 'assets/characters/player/jump/anim11.png')
 
-        scene.load.image('run1', 'assets/Player/run/anim5.png')
-        scene.load.image('run2', 'assets/Player/run/anim6.png')
-        scene.load.image('run3', 'assets/Player/run/anim7.png')
-        scene.load.image('run4', 'assets/Player/run/anim8.png')
-        scene.load.image('run5', 'assets/Player/run/anim9.png')
-        scene.load.image('run6', 'assets/Player/run/anim10.png')
-        scene.load.image('run7', 'assets/Player/run/anim11.png')
-        scene.load.image('run8', 'assets/Player/run/anim12.png')
+        scene.load.image('run1', 'assets/characters/player/run/anim5.png')
+        scene.load.image('run2', 'assets/characters/player/run/anim6.png')
+        scene.load.image('run3', 'assets/characters/player/run/anim7.png')
+        scene.load.image('run4', 'assets/characters/player/run/anim8.png')
+        scene.load.image('run5', 'assets/characters/player/run/anim9.png')
+        scene.load.image('run6', 'assets/characters/player/run/anim10.png')
+        scene.load.image('run7', 'assets/characters/player/run/anim11.png')
+        scene.load.image('run8', 'assets/characters/player/run/anim12.png')
     }
 
     static animations(scene: Phaser.Scene) {

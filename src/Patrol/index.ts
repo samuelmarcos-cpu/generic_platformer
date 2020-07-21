@@ -3,14 +3,15 @@ import "phaser"
 import { State } from "../utils/StateMachine"
 import RightState from "./states/RightState"
 import LeftState from "./states/LeftState"
-import Player from "../Player";
-import DeadState from "./states/DeadState";
+import DeadState from "./states/DeadState"
+import Player from "../Player"
 
-export default class Patrol extends Phaser.Physics.Arcade.Sprite {
-    static readonly VELOCITY_X = 50
+type PatrolOptions = {
+    velocityX: number,
+    collisionJump: number
+}
 
-    static readonly ANIMS_RUN = "patrolRun"
-
+export default abstract class Patrol extends Phaser.Physics.Arcade.Sprite {
     private readonly layer: Phaser.Tilemaps.StaticTilemapLayer
     private readonly tileWidth: number
     private readonly tileHeight: number
@@ -23,7 +24,8 @@ export default class Patrol extends Phaser.Physics.Arcade.Sprite {
         x: number, y: number,
         tileWidth: number, tileHeight: number,
         layer: Phaser.Tilemaps.StaticTilemapLayer,
-        enemy: Player
+        enemy: Player,
+        options: PatrolOptions
     ) {
         super(scene, x, y, "patrolRun1")
         this.scene.add.existing(this)
@@ -41,7 +43,7 @@ export default class Patrol extends Phaser.Physics.Arcade.Sprite {
             if (up) {
                 hitHead.destroy()
                 this.setState("dead")
-                enemy.emit("spring-up", Player.VELOCITY_Y * 1.5)
+                enemy.emit("spring-up", Player.VELOCITY_Y * options.collisionJump)
             } else if (left || right) {
                 enemy.emit("collider-horizontal-enemy", this)
             }
@@ -49,32 +51,14 @@ export default class Patrol extends Phaser.Physics.Arcade.Sprite {
 
         this.body.setSize(16, 10)
         this.body.offset.y = 6
+        this.body.offset.x = 0
 
         this.possibleStates = {
-            right: new RightState(this),
-            left: new LeftState(this),
+            right: new RightState(this, options.velocityX),
+            left: new LeftState(this, options.velocityX),
             dead: new DeadState(this, this.scene)
         }
         this.setState("right")
-    }
-
-    static preload(scene: Phaser.Scene) {
-        scene.load.image('patrolRun1', "assets/NPC's/blue patrol/azul1.png")
-        scene.load.image('patrolRun2', "assets/NPC's/blue patrol/azul2.png")
-        scene.load.image('patrolRun3', "assets/NPC's/blue patrol/azul3.png")
-    }
-
-    static animations(scene: Phaser.Scene) {
-        scene.anims.create({
-            key: Patrol.ANIMS_RUN,
-            frames: [
-                { key: 'patrolRun1', frame: 0 },
-                { key: 'patrolRun2', frame: 0 },
-                { key: 'patrolRun3', frame: 0 }
-            ],
-            frameRate: 8,
-            repeat: -1
-        })
     }
 
     setState(value: string | number, ...args: any[]) {
@@ -98,4 +82,6 @@ export default class Patrol extends Phaser.Physics.Arcade.Sprite {
         super.update()
         this.possibleStates[this.state].execute()
     }
+
+    abstract getAnimKeyRun(): string;
 }

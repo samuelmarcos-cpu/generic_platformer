@@ -1,13 +1,17 @@
 import "phaser";
 
 import Player from "./Player";
-import Patrol from "./Patrol";
+import GreenPatrol from "./GreenPatrol";
+import BluePatrol from "./BluePatrol";
+import RedPatrol from "./RedPatrol";
 import Chest from "./Chest";
 import Trap from "./Trap";
 
 export class GameScene extends Phaser.Scene {
     private player?: Player
-    private patrol?: Phaser.Physics.Arcade.Sprite
+    private green?: Phaser.Physics.Arcade.Sprite
+    private blue?: Phaser.Physics.Arcade.Sprite
+    private red?: Phaser.Physics.Arcade.Sprite
     private trap?: Trap
 
     constructor() {
@@ -34,14 +38,16 @@ export class GameScene extends Phaser.Scene {
         this.load.tilemapTiledJSON('map', 'assets/map/map.json')
 
         Player.preload(this)
-        Patrol.preload(this)
-
-        this.load.image('patrol', "assets/NPC's/blue patrol/azul1.png")
+        GreenPatrol.preload(this)
+        BluePatrol.preload(this)
+        RedPatrol.preload(this)
     }
 
     create() {
         Player.animations(this)
-        Patrol.animations(this)
+        GreenPatrol.animations(this)
+        BluePatrol.animations(this)
+        RedPatrol.animations(this)
 
         const map = this.make.tilemap({ key: 'map' })
         const tiles = map.addTilesetImage('generic_platformer_atlas', 'tiles')
@@ -79,13 +85,17 @@ export class GameScene extends Phaser.Scene {
             keys, chests)
         // this.physics.add.collider(this.player, mainLayer)
 
-        this.patrol = new Patrol(this, 216, 80, map.tileWidth, map.tileHeight, mainLayer, this.player)
+        this.green = new GreenPatrol(this, 200, 80, map.tileWidth, map.tileHeight, mainLayer, this.player)
+        this.blue = new BluePatrol(this, 100, 80, map.tileWidth, map.tileHeight, mainLayer, this.player)
+        this.red = new RedPatrol(this, 375, 80, map.tileWidth, map.tileHeight, mainLayer, this.player)
         this.trap = new Trap(this, map, 'trap', tiles, this.player)
     }
 
     update() {
         this.player?.update()
-        this.patrol?.update()
+        this.green?.update()
+        this.blue?.update()
+        this.red?.update()
         this.trap?.update()
     }
 }
